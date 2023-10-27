@@ -3,6 +3,7 @@ import { createStore } from 'redux';
 
 const defaultState = {
     counter: 0,
+    showCounter: true,
 };
 
 const counterReducer = (state=defaultState, action) => {
@@ -10,6 +11,7 @@ const counterReducer = (state=defaultState, action) => {
     {
         return {
             counter: state.counter + 1,
+            showCounter: state.showCounter,
         };
     }
 
@@ -17,6 +19,7 @@ const counterReducer = (state=defaultState, action) => {
     {
         return {
             counter: state.counter + action.amount,
+            showCounter: state.showCounter,
         };
     }
 
@@ -24,6 +27,15 @@ const counterReducer = (state=defaultState, action) => {
     {
         return {
             counter: state.counter - 1,
+            showCounter: state.showCounter,
+        };
+    }
+
+    if (action.type === 'toggle')
+    {
+        return {
+            showCounter: !state.showCounter,
+            counter: state.counter,
         };
     }
 
