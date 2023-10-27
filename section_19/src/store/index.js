@@ -12,6 +12,7 @@ const counterReducer = (state=defaultState, action) => {
             counter: state.counter + 1,
         };
     }
+    
     if (action === 'decrement')
     {
         return {
